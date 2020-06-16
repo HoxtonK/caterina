@@ -1,17 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import { AccountDevice, Client, Session } from "@heroiclabs/nakama-js"
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+
+const client = new Client("defaultKey", "127.0.0.1", "7350");
+const clientId: string = window.crypto.getRandomValues(new Uint8Array(8)).join();
+const device: AccountDevice = { create: true, id: clientId };
+
+let session: Session;
+
+client.authenticateDevice(device)
+  .then(s => session = s)
+  .catch(e => console.log(`Authentication error: ${e}`));

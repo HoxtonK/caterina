@@ -1,5 +1,8 @@
 import Authentication from "app/authentication"
+import { assert } from "console";
 
 it("authenticates using device id", () => {
-    expect(true);
+    let auth = new Authentication();
+    expect(auth.authenticate());
 }, 5000)
+

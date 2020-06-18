@@ -1,7 +1,8 @@
 import Authentication from "app/authentication"
-import { Session } from "@heroiclabs/nakama-js"
-import { assert } from "console";
 
+/**
+ * @group network-up
+ */
 it("authenticates using device id", () => {
     let auth = new Authentication();
 
@@ -9,5 +10,3 @@ it("authenticates using device id", () => {
         expect(session).toBeDefined();
     })
 }, 1000);
-
-

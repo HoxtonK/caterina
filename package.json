@@ -8,6 +8,7 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "@types/jest": "^24.9.1",
+    "@types/jsdom": "^16.2.3",
     "@types/node": "^12.12.47",
     "@types/react": "^16.9.36",
     "@types/react-dom": "^16.9.8",
@@ -22,7 +23,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "docker-compose up -d && react-scripts test",
+    "test-up": "docker-compose up -d && react-scripts test --watchAll=false --runner=groups --group=network-up",
+    "test-down": "docker-compose down && react-scripts test --watchAll=false --runner=groups --group=network-down",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -42,5 +44,8 @@
   },
   "devDependencies": {
     "jest-runner-groups": "^2.0.1"
+  },
+  "jest": {
+    "omitJSDOMErrors": true
   }
 }

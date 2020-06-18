@@ -44,8 +44,5 @@
   },
   "devDependencies": {
     "jest-runner-groups": "^2.0.1"
-  },
-  "jest": {
-    "omitJSDOMErrors": true
   }
 }

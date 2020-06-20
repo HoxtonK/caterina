@@ -74,8 +74,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test-up": "docker-compose up -d && node scripts/test.js --watchAll=false --runner=groups --group=network-up",
-    "test-down": "docker-compose down && node scripts/test.js --watchAll=false --runner=groups --group=network-down"
+    "test-up": "node scripts/test.js --runner=groups --group=network-up",
+    "test-down": "node scripts/test.js --runner=groups --group=network-down"
   },
   "eslintConfig": {
     "extends": "react-app"

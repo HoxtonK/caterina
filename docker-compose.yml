@@ -1,4 +1,4 @@
-version: '3'
+version: '3.2'
 services:
   cockroachdb:
     container_name: cockroachdb
@@ -42,5 +42,12 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+  caterina:
+    image: lugehorsam/caterina:latest
+    volumes:
+      - type: bind
+        source: ./
+        target: /caterina-user/caterina
+        read_only: true
 volumes:
   data:
